@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", ()=>{
     const numberInput = document.querySelector("#story-length-input");
-    const emojiStory = document.querySelector("emoji-story");
+    const emojiStory = document.querySelector("#emoji-story");
     const emojiStoryBtn = document.querySelector("#generate-story-btn");
     const emojis = [
         '😀','😆','😅','🤣','🙃','😍','😡','🥶','😱','👻',
@@ -10,15 +10,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
         '🧡','💛','💗','💙','💜','☢️','🚫','💯','🔱','🎊',
         '🙏🏻','🤑','👩🏻‍💻','🧘🏻‍♀️','🥦','🥳','🧠','🌂','🌱','🌻'
     ]
-    //When a user clicks the emojiStoryBtn
-    //the p tag should display the same number of emojis as the value of the numberInput
-    //depending on the value, im going to continue to push things into a new array that I will display
+    let newArr = []
 
-    let randomEmojiSelection = emojis[Math.floor(Math.random() * emojis.length)];
     emojiStoryBtn.addEventListener("click", ()=> {
-
-    })
-    
+        for(let i = 0; i < numberInput.value ;i++){
+            let randomEmojiSelection = emojis[Math.floor(Math.random() * emojis.length)];
+                newArr.push(randomEmojiSelection);
+        }
+        emojiStory.textContent = newArr.join('');
+    })    
 
 
    let descriptionInput = document.querySelector("#description-input");
