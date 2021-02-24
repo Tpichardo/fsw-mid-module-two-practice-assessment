@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const numberInput = document.querySelector("#story-length-input");
     const emojiStory = document.querySelector("#emoji-story");
     const emojiStoryBtn = document.querySelector("#generate-story-btn");
+    let newArr = []
     const emojis = [
         '😀','😆','😅','🤣','🙃','😍','😡','🥶','😱','👻',
         '👾','😻','💋','👅','🧵','👠','🥾','👑','🎓','🐔',
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })    
 
     function selectEmojis(){
-        let newArr = []
+        newArr = []
         for(let i = 0; i < numberInput.value ;i++){
             let randomEmojiSelection = emojis[Math.floor(Math.random() * emojis.length)];
                 newArr.push(randomEmojiSelection);
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
    descriptionBtn.addEventListener("click", () =>{
     let li = document.createElement('li');
-    li.textContent = descriptionInput.value;
+    li.textContent = `${newArr.join('')}: ${descriptionInput.value}`;
     ul.appendChild(li);
     let numOfDescriptions = document.querySelectorAll('li');
     if(numOfDescriptions.length === 0){
@@ -48,7 +49,3 @@ document.addEventListener("DOMContentLoaded", ()=>{
    
 
 })
-
-
-//reset the array so that it gives new values 
-//I need to display the new array once the user clicks again 
