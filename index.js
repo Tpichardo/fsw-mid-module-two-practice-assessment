@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     emojiStoryBtn.addEventListener("click", ()=> {
        selectEmojis();
-    })    
+    });    
 
     function selectEmojis(){
         newArr = []
